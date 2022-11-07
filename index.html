@@ -12,17 +12,38 @@
 <body>
     <main>
         <form class="container">
-            <input type="text" placeholder="title">
-            <label for="category">Choose category:</label>
-            <select id="category" name="category">
-                <option value="petrol">Petrol</option>
-                <option value="house bills">House bills</option>
-                <option value="shopping">Shopping</option>
-                <option value="extras">Extras</option>
-            </select>
-            <input type="date">
-            <input type="submit" value="Submit">
+            <div class="form-header">
+                <h1>EXPENSE TRACKER</h1>
+            </div>
+            <div class="row"><input type="text" placeholder="Title"></div>
+
+            <div class="row">
+                <label for="category">Choose category:</label>
+                <select id="category" name="category">
+                    <option value="petrol">Petrol</option>
+                    <option value="house bills">House bills</option>
+                    <option value="shopping">Shopping</option>
+                    <option value="extras">Extras</option>
+                </select>
+                <input type="number" placeholder="How much you spent?">
+            </div>
+            <div class="row">
+                <input type="date">
+                <input type="submit" value="Submit" id="submit">
+            </div>
         </form>
+
+        <section class="expenses container">
+            <table>
+                <thead>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Value</th>
+                    <th>Date</th>
+                </thead>
+            </table>
+
+        </section>
     </main>
 
     <!-- JS Script -->
