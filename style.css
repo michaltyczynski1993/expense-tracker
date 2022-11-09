@@ -91,6 +91,13 @@ th {
     text-align: center;
 }
 
+#total-label,
+#budget {
+    width: 40%;
+    padding: 0.7rem 0;
+    font-size: 1.1rem;
+}
+
 @media(min-width:600px) {
     .row {
         flex-direction: row;

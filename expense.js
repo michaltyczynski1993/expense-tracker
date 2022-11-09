@@ -7,6 +7,12 @@ function Fields(title, category, amount, date) {
 }
 
 let fieldsArray = [];
+let budget = prompt("What's Your budget?");
+
+window.onload = function () {
+    const budgetLabel = document.getElementById("budget");
+    budgetLabel.innerText = `Your budget: ${budget}`;
+}
 
 function addexpense() {
     // get title, category, money value, date
@@ -23,6 +29,8 @@ function addexpense() {
     // reset form values
     document.getElementsByTagName("form")[0].reset();
     addTableItem();
+    totalAmount();
+    checkTotal();
 
 }
 
@@ -53,6 +61,24 @@ function addTableItem() {
 
     let dateText = document.createTextNode(lastChild.date);
     dateCell.appendChild(dateText);
+}
+
+function totalAmount() {
+    // sum whole amount properties from Fields in array
+    let sum = 0;
+    for (i = 0; i < fieldsArray.length; i++) {
+        sum += parseInt(fieldsArray[i].amount);
+    }
+    // change innerHTML for span in total label
+    const totalSpan = document.getElementById("total");
+    totalSpan.innerText = `${sum} PLN`;
+}
+
+function checkTotal() {
+    const total = document.getElementById("total").value;
+    if (budget < total) {
+        document.getElementById("total-label").style.color = "red";
+    }
 }
 
 
