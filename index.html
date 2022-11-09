@@ -11,11 +11,11 @@
 
 <body>
     <main>
-        <form class="container">
+        <form class="container" onsubmit="addexpense(); return false;">
             <div class="form-header">
                 <h1>EXPENSE TRACKER</h1>
             </div>
-            <div class="row"><input type="text" placeholder="Title"></div>
+            <div class="row"><input type="text" id="title" placeholder="Title"></div>
 
             <div class="row">
                 <label for="category">Choose category:</label>
@@ -25,11 +25,11 @@
                     <option value="shopping">Shopping</option>
                     <option value="extras">Extras</option>
                 </select>
-                <input type="number" placeholder="How much you spent?">
+                <input type="number" id="amount" placeholder="How much you spent?">
             </div>
             <div class="row">
-                <input type="date">
-                <input type="submit" value="Submit" id="submit">
+                <input type="date" id="date">
+                <input type="submit" id="submit"></input>
             </div>
         </form>
 
@@ -41,6 +41,7 @@
                     <th>Value</th>
                     <th>Date</th>
                 </thead>
+                <tbody id="table"></tbody>
             </table>
 
         </section>

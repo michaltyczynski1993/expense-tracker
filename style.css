@@ -87,6 +87,10 @@ th {
     border-radius: 0.15rem;
 }
 
+#table {
+    text-align: center;
+}
+
 @media(min-width:600px) {
     .row {
         flex-direction: row;
