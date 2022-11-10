@@ -6,6 +6,7 @@ function Fields(title, category, amount, date) {
     this.date = date;
 }
 
+let sum = 0;
 let fieldsArray = [];
 let budget = prompt("What's Your budget?");
 
@@ -31,7 +32,6 @@ function addexpense() {
     addTableItem();
     totalAmount();
     checkTotal();
-
 }
 
 function addTableItem() {
@@ -65,7 +65,6 @@ function addTableItem() {
 
 function totalAmount() {
     // sum whole amount properties from Fields in array
-    let sum = 0;
     for (i = 0; i < fieldsArray.length; i++) {
         sum += parseInt(fieldsArray[i].amount);
     }
@@ -75,9 +74,10 @@ function totalAmount() {
 }
 
 function checkTotal() {
-    const total = document.getElementById("total").value;
-    if (budget < total) {
-        document.getElementById("total-label").style.color = "red";
+    const totalLabel = document.getElementById("total-label");
+    if (budget < sum) {
+        totalLabel.style.backgroundColor = "red";
+        totalLabel.style.boxShadow = "0.2rem 0.2rem 1rem #e03939";
     }
 }
 

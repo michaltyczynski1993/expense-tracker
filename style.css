@@ -96,6 +96,7 @@ th {
     width: 40%;
     padding: 0.7rem 0;
     font-size: 1.1rem;
+    background-color: #441e7a;
 }
 
 @media(min-width:600px) {
