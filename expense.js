@@ -7,12 +7,17 @@ function Fields(title, category, amount, date) {
 }
 
 let sum = 0;
-let fieldsArray = [];
-let budget = prompt("What's Your budget?");
+let fieldsArray = JSON.parse(localStorage.getItem('object')) || [];
+let budget = JSON.parse(localStorage.getItem("budget")) || prompt("What's Your budget?");
 
 window.onload = function () {
     const budgetLabel = document.getElementById("budget");
     budgetLabel.innerText = `Your budget: ${budget}`;
+    showTable();
+    // set budget to local storage
+    localStorage.setItem("budget", budget);
+    totalAmount();
+    checkTotal();
 }
 
 function addexpense() {
@@ -27,11 +32,13 @@ function addexpense() {
 
     // append new object to fieldsArray
     fieldsArray.push(newValues);
+    // save array to localstorage
+    localStorage.setItem("object", JSON.stringify(fieldsArray));
+
     // reset form values
     document.getElementsByTagName("form")[0].reset();
     addTableItem();
-    totalAmount();
-    checkTotal();
+
 }
 
 function addTableItem() {
@@ -80,5 +87,40 @@ function checkTotal() {
         totalLabel.style.boxShadow = "0.2rem 0.2rem 1rem #e03939";
     }
 }
+
+function showTable() {
+    // find table tbody
+    let tbodyRef = document.getElementById('table');
+
+    for (i = 0; i < fieldsArray.length; i++) {
+        // Insert a row at the end of table
+        var newRow = tbodyRef.insertRow()
+
+        // Insert a cell at the end of the row
+        let titleCell = newRow.insertCell(0);
+        let categoryCell = newRow.insertCell(1);
+        let amountCell = newRow.insertCell(2);
+        let dateCell = newRow.insertCell(3);
+
+        // Append a text node to the cell
+        let titleText = document.createTextNode(fieldsArray[i].title);
+        titleCell.appendChild(titleText);
+
+        let categoryText = document.createTextNode(fieldsArray[i].category);
+        categoryCell.appendChild(categoryText);
+
+        let amountText = document.createTextNode(fieldsArray[i].amount + " PLN");
+        amountCell.appendChild(amountText);
+
+        let dateText = document.createTextNode(fieldsArray[i].date);
+        dateCell.appendChild(dateText);
+
+    }
+
+
+
+}
+
+
 
 
