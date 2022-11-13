@@ -37,37 +37,7 @@ function addexpense() {
 
     // reset form values
     document.getElementsByTagName("form")[0].reset();
-    addTableItem();
 
-}
-
-function addTableItem() {
-    // find table tbody
-    let tbodyRef = document.getElementById('table');
-    // get last Field object from list
-    let lastChild = fieldsArray[fieldsArray.length - 1];
-
-    // Insert a row at the end of table
-    var newRow = tbodyRef.insertRow()
-
-    // Insert a cell at the end of the row
-    let titleCell = newRow.insertCell(0);
-    let categoryCell = newRow.insertCell(1);
-    let amountCell = newRow.insertCell(2);
-    let dateCell = newRow.insertCell(3);
-
-    // Append a text node to the cell
-    let titleText = document.createTextNode(lastChild.title);
-    titleCell.appendChild(titleText);
-
-    let categoryText = document.createTextNode(lastChild.category);
-    categoryCell.appendChild(categoryText);
-
-    let amountText = document.createTextNode(lastChild.amount + " PLN");
-    amountCell.appendChild(amountText);
-
-    let dateText = document.createTextNode(lastChild.date);
-    dateCell.appendChild(dateText);
 }
 
 function totalAmount() {
@@ -114,13 +84,16 @@ function showTable() {
 
         let dateText = document.createTextNode(fieldsArray[i].date);
         dateCell.appendChild(dateText);
-
     }
-
-
-
 }
 
-
-
-
+function deleteObject(title) {
+    for (let i = 0; i < fieldsArray.length; i++) {
+        if (fieldsArray[i].title == title) {
+            fieldsArray.splice(i, 1);
+        }
+    }
+    // localStorage
+    localStorage.setItem("object", JSON.stringify(fieldsArray));
+    showTable();
+}
