@@ -32,12 +32,21 @@
                 <input type="submit" id="submit"></input>
             </div>
             <hr>
-            <div class="row">
+            <div class="row mobile-row">
                 <label id="budget">Your budget: </label>
                 <label id="total-label">Total: <span id="total"></span></label>
             </div>
+
         </form>
 
+        <section class="container small">
+            <div class="row mobile-row">
+                <button onclick="clearAll()">Delete All</button>
+                <input id="delete-title" type="text" placeholder="type record title you want to delete">
+                <button onclick="deleteObject()">Delete</button>
+            </div>
+        </section>
+        <hr>
         <section class="expenses container">
             <table>
                 <thead>

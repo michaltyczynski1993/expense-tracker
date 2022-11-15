@@ -13,11 +13,12 @@ let budget = JSON.parse(localStorage.getItem("budget")) || prompt("What's Your b
 window.onload = function () {
     const budgetLabel = document.getElementById("budget");
     budgetLabel.innerText = `Your budget: ${budget}`;
-    showTable();
+
     // set budget to local storage
     localStorage.setItem("budget", budget);
     totalAmount();
     checkTotal();
+    showTable();
 }
 
 function addexpense() {
@@ -87,7 +88,8 @@ function showTable() {
     }
 }
 
-function deleteObject(title) {
+function deleteObject() {
+    let title = document.getElementById("delete-title").value;
     for (let i = 0; i < fieldsArray.length; i++) {
         if (fieldsArray[i].title == title) {
             fieldsArray.splice(i, 1);
@@ -95,5 +97,12 @@ function deleteObject(title) {
     }
     // localStorage
     localStorage.setItem("object", JSON.stringify(fieldsArray));
-    showTable();
+    window.location.reload();
+}
+
+function clearAll() {
+    let newArray = [];
+    fieldsArray = newArray;
+    localStorage.clear();
+    window.location.reload();
 }
