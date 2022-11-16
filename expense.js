@@ -95,7 +95,7 @@ function deleteObject() {
             fieldsArray.splice(i, 1);
         }
     }
-    // localStorage
+    // delete localStorage
     localStorage.setItem("object", JSON.stringify(fieldsArray));
     window.location.reload();
 }
