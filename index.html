@@ -32,7 +32,7 @@
                 <input type="number" id="amount" placeholder="How much you spent?" step="any" required>
             </div>
             <div class="row">
-                <input type="date" id="date" placeholder="mm/dd/yyyy" required>
+                <input type="date" id="date" required>
                 <button type="submit" id="submit">Submit</button>
             </div>
             <hr>
@@ -44,6 +44,7 @@
         </form>
 
         <section class="container mobile">
+            <h2>Delete items</h2>
             <div class="row mobile-row">
                 <button onclick="clearAll()">Delete All</button>
                 <input id="delete-title" type="text" placeholder="type record title you want to delete">
@@ -51,18 +52,19 @@
             </div>
         </section>
         <hr>
-        <section class="expenses container">
+        <div class="expenses container">
             <table>
                 <thead>
-                    <th>Title</th>
-                    <th>Category</th>
-                    <th>Value</th>
-                    <th>Date</th>
+                    <tr>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Value</th>
+                        <th>Date</th>
+                    </tr>
                 </thead>
                 <tbody id="table"></tbody>
             </table>
-
-        </section>
+        </div>
     </main>
 
     <!-- JS Script -->
