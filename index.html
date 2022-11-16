@@ -20,16 +20,20 @@
             <div class="row">
                 <label for="category">Choose category:</label>
                 <select id="category" name="category">
-                    <option value="petrol">Petrol</option>
                     <option value="house bills">House bills</option>
-                    <option value="shopping">Shopping</option>
-                    <option value="extras">Extras</option>
+                    <option value="petrol">Petrol</option>
+                    <option value="grocery">Grocery</option>
+                    <option value="beauty">Beauty</option>
+                    <option value="shopping/clothes">Shopping/Clothes</option>
+                    <option value="restaurants">Restaurants</option>
+                    <option value="restaurants">Extras</option>
+
                 </select>
-                <input type="number" id="amount" placeholder="How much you spent?">
+                <input type="number" id="amount" placeholder="How much you spent?" step="any" required>
             </div>
             <div class="row">
-                <input type="date" id="date">
-                <input type="submit" id="submit"></input>
+                <input type="date" id="date" placeholder="mm/dd/yyyy" required>
+                <button type="submit" id="submit">Submit</button>
             </div>
             <hr>
             <div class="row mobile-row">

@@ -44,7 +44,7 @@ function addexpense() {
 function totalAmount() {
     // sum whole amount properties from Fields in array
     for (i = 0; i < fieldsArray.length; i++) {
-        sum += parseInt(fieldsArray[i].amount);
+        sum += parseFloat(fieldsArray[i].amount);
     }
     // change innerHTML for span in total label
     const totalSpan = document.getElementById("total");
