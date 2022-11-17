@@ -18,6 +18,7 @@ window.onload = function () {
     localStorage.setItem("budget", budget);
     totalAmount();
     checkTotal();
+    savingsAmount();
     showTable();
 }
 
@@ -39,6 +40,12 @@ function addexpense() {
     // reset form values
     document.getElementsByTagName("form")[0].reset();
 
+}
+
+function savingsAmount() {
+    // calc and show total savings
+    const savingsSpan = document.getElementById("savings");
+    savingsSpan.innerText = `${budget - sum} PLN`;
 }
 
 function totalAmount() {
